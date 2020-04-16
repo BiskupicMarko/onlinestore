@@ -1,0 +1,46 @@
+use onlinestore;
+
+create table visitor(
+    id int not null primary key auto_increment,
+);
+
+create table customer(
+    id int not null primary key auto_increment,
+    c_username varchar(255) not null,
+    c_email varchar(255) not null,
+    c_password varchar(255) not null,
+    c_address varchar(255) not null,
+    c_phoneNumber char(255) not null,
+    c_creditCard char(255) not null
+);
+
+create table order(
+    id int not null primary key auto_increment,
+    o_customer int not null
+);
+
+create table orderDetails(
+    id int not null primary key auto_increment,
+    od_orderDate datetime,
+    od_status varchar(255) not null,
+    od_priceAmount decimal(20,2) not null
+);
+
+create table product(
+    id int not null primary key auto_increment,
+    p_name varchar(255) not null,
+    P_price decimal(20,2) not null,
+    p_description varchar(255),
+    p_category int
+);
+
+create table category(
+    id int not null primary key auto_increment,
+    ca_name varchar(255) not null
+);
+
+create table visCategory(
+    id int not null primary key auto_increment,
+    v_visitor int not null,
+    v_category int not null
+);
